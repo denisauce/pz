@@ -1,0 +1,39 @@
+<h1>Добавить тренировку</h1>
+
+<%= render 'form', sport: @sport %>
+
+<p><%= link_to 'Назад', sports_path %></p>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      color: #333;
+      background-color: #fff;
+      padding: 20px;
+      margin: 0;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    /* Добавьте дополнительные стили, если необходимо */
+
+    p {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>

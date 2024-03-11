@@ -1,0 +1,24 @@
+<% @cart.orderables.each do |orderable| %>
+  <% sport = orderable.sport %>
+  <div id="<%= "cart-#{sport.id}" %>">
+    <div style="display:flex;justify-content:space-between;margin: 0em 5em;">
+      <strong>Тренировки:</strong>
+      <%= sport.title %>
+      <strong>Информация:</strong>
+      <%= sport.description %>
+      <strong>Цена:</strong>
+      <%= sport.price %>
+      <%= form_with(url: cart_add_path) do |f| %>
+        <%= f.hidden_field :id, value: sport.id %>
+        <%= f.number_field :quantity, value: orderable.quantity, min: 0 %>
+        <%= f.submit "Добавить в отложенное" %>
+      <% end %>
+      <%= form_with(url: cart_remove_path) do |f| %>
+        <%= f.hidden_field :id, value: orderable.id %>
+        <%= f.submit "Х" %>
+      <% end %>
+      <strong>Всего за тренировки:</strong>
+      <%= orderable.total %>
+    </div>
+  </div>
+<% end %>

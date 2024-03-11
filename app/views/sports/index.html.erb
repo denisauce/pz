@@ -1,0 +1,49 @@
+<h1>Список тренировок</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Название</th>
+      <th>Описание</th>
+      <th>Цена</th>
+      <th>Продолжительность</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @sports.each do |sport| %>
+      <tr>
+        <td><%= sport.title %></td>
+        <td><%= sport.description %></td>
+        <td><%= sport.price %></td>
+        <td><%= sport.total %></td>
+        <td><%= link_to 'Просмотреть', sport %></td>
+        <td><%= link_to 'Редактировать', edit_sport_path(sport) %></td>
+        <td><%= link_to 'Удалить', sport, 'data-turbo-method': :delete, data: { confirm: 'Вы уверены?' } %></td>
+         <%= form_with(url: cart_add_path) do |f| %>
+      <td><%= f.hidden_field :id, value: sport.id %>
+      <%= f.number_field :quantity, value: 0, min: 1 %>
+      <%= f.submit "Добавить в отложенное" %></td>
+    <% end %> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p><%= link_to 'Добавить тренировку', new_sport_path %></p>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px; /* Пространство между заголовком и таблицей */
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>

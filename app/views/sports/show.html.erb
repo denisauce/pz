@@ -1,0 +1,47 @@
+<h1>Информация о тренировках</h1>
+
+<p><strong>Название:</strong> <%= @sport.title %></p>
+<p><strong>Информация:</strong> <%= @sport.description %></p>
+<p><strong>Цена:</strong> <%= @sport.price %></p>
+<p><strong>Продолжительность:</strong> <%= @sport.total %></p>
+
+<p><%= link_to 'Редактировать', edit_sport_path(@sport) %></p>
+<p><%= link_to 'Назад', sports_path %></p>
+ <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      color: #333;
+      background-color: #fff;
+      padding: 20px;
+      margin: 0;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    p {
+      margin: 10px 0;
+      padding: 5px;
+    }
+
+    strong {
+      color: #007BFF;
+    }
+
+    a {
+      color: #007BFF;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
